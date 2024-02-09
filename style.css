@@ -1,0 +1,109 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Protest Guerrilla', sans-serif;
+    background: #00F260;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #0575E6, #00F260);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock {
+    font-size: 4rem;
+    color: white;
+}
+
+.date {
+    font-size: 3rem;
+    color: white;
+}
+
+.container {
+    width: 400px;
+    background: rgba( 34, 34, 34, 0.45 );
+    /* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    backdrop-filter: blur( 7.5px );
+    -webkit-backdrop-filter: blur( 7.5px );
+    border-radius: 10px;
+    /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6rem 1rem;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.6rem;
+}
+
+div + div {
+    margin-top: 1rem;
+}
+
+@media (max-width: 450px) {
+    .container {
+        padding: 3rem 1rem;
+        width: 250px
+    }
+
+    .clock {
+        font-size: 2.5rem;
+        color: white;
+    }
+    
+    .date {
+        font-size: 2rem;
+        color: white;
+    }
+}
+
+/* Loading animation */
+
+.loader {
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* centered vertically and horizontally */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #333;
+    transition: opacity 0.75s, visibility 0.75s;
+}
+
+.loader--hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader::after {
+    content: "";
+    width: 150px;
+    height: 150px;
+    border: 15px solid #dddddd;
+    border-top-color: #009578;
+    border-radius: 50%;
+    animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+    from {transform: rotate(0turn)}
+    to {transform: rotate(1turn)}
+}
